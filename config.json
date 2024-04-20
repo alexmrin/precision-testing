@@ -1,25 +1,29 @@
 {
     "num_classes": 10,
 
-    "lr": 0.0003,
+    "lr": 0.003,
     "batch_size": 128,
     "num_epochs": 100,
     "optimizer": "AdamW",
     "loss_function": "CrossEntropyLoss",
-    "weight_decay": 0.005,
+    "weight_decay": 0.05,
     
     "dataset": "CIFAR10",
     "train_split": 0.8,
     "shuffle": true,
+    "num_train_workers": 8,
+    "num_test_workers": 4,
+    "pin_memory": false,
     "normalization": {
-        "mean": [0.5071, 0.4867, 0.4408],
-        "std": [0.2675, 0.2565, 0.2761]
+        "mean": [0.4914, 0.4822, 0.4465],
+        "std": [0.247, 0.243, 0.261]
     },
     "augmentation": {
+        "random_crop": [26, 26],
         "random_horizontal_flip": 0.5,
         "random_rotation": 15
     },
 
-    "checkpoint_frequency": 10,
-    "save_path": "./models/resnet50_cifar100/"
+    "checkpoint_frequency": 20,
+    "save_path": "./models/resnet50_cifar10/"
 }
